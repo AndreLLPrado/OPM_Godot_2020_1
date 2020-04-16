@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/Monkey Act - Personal Use.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripits/menu_scripits/main_menu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 76
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 18
+font_data = ExtResource( 1 )
+
+[node name="main_menu" type="Control"]
+margin_right = 1022.0
+margin_bottom = 610.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1022.0
+margin_bottom = 603.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 271.0
+margin_top = 262.0
+margin_right = 750.0
+margin_bottom = 340.0
+
+[node name="chose_dificulty_popup" type="Popup" parent="CenterContainer/VBoxContainer"]
+margin_right = 479.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dificulty_txt" type="Label" parent="CenterContainer/VBoxContainer/chose_dificulty_popup"]
+margin_left = 86.5249
+margin_top = 4.0
+margin_right = 409.525
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 3 )
+text = "Chose Dificulty"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="easy" type="Button" parent="CenterContainer/VBoxContainer/chose_dificulty_popup/dificulty_txt"]
+margin_left = 262.247
+margin_top = 88.4001
+margin_right = 296.247
+margin_bottom = 112.4
+custom_fonts/font = SubResource( 4 )
+text = "Easy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="medium" type="Button" parent="CenterContainer/VBoxContainer/chose_dificulty_popup/dificulty_txt"]
+margin_left = 153.231
+margin_top = 87.2944
+margin_right = 202.231
+margin_bottom = 111.294
+custom_fonts/font = SubResource( 4 )
+text = "medium"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hard" type="Button" parent="CenterContainer/VBoxContainer/chose_dificulty_popup/dificulty_txt"]
+margin_left = 46.7752
+margin_top = 86.2493
+margin_right = 81.7752
+margin_bottom = 110.249
+custom_fonts/font = SubResource( 4 )
+text = "hard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 479.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 1 )
+text = "Shiver Me Timbers"
+
+[node name="play" type="Button" parent="CenterContainer/VBoxContainer/title"]
+margin_top = 82.0
+margin_right = 479.0
+margin_bottom = 119.0
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+
+[node name="options_button" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 5 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="about_to_show" from="CenterContainer/VBoxContainer/chose_dificulty_popup" to="." method="_on_chose_dificulty_about_to_show"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/title/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="options_button" to="." method="_on_options_pressed"]

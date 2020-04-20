@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/Monkey Act - Personal Use.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripits/menu_scripits/pause_menu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[node name="state_1" type="Node"]
+
+[node name="pause_menu" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="pause_menu"]
+pause_mode = 2
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/CenterContainer"]
+pause_mode = 2
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Panel" type="Panel" parent="pause_menu/CenterContainer/VBoxContainer"]
+pause_mode = 2
+
+[node name="paused_txt" type="Label" parent="pause_menu/CenterContainer/VBoxContainer/Panel"]
+pause_mode = 2
+margin_top = -23.1003
+margin_right = 97.0
+margin_bottom = 13.8997
+custom_fonts/font = SubResource( 1 )
+text = "Paused"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resume_buttom" type="Button" parent="pause_menu/CenterContainer/VBoxContainer/Panel"]
+pause_mode = 2
+margin_top = 18.0
+margin_right = 107.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 2 )
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="options_buttom" type="Button" parent="pause_menu/CenterContainer/VBoxContainer/Panel"]
+pause_mode = 2
+margin_top = 42.0
+margin_right = 107.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 2 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_menu_buttom" type="Button" parent="pause_menu/CenterContainer/VBoxContainer/Panel"]
+pause_mode = 2
+margin_top = 66.0
+margin_right = 107.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 2 )
+text = "Return to Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="pause_menu/CenterContainer/VBoxContainer/Panel/resume_buttom" to="pause_menu" method="_on_resume_buttom_pressed"]
+[connection signal="pressed" from="pause_menu/CenterContainer/VBoxContainer/Panel/main_menu_buttom" to="pause_menu" method="_on_main_menu_buttom_pressed"]

@@ -1,24 +1,32 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Monkey Act - Personal Use.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripits/menu_scripits/main_menu.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 70
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 76
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 30
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
+size = 18
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 18
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
 size = 18
 font_data = ExtResource( 1 )
 
@@ -31,20 +39,19 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_right = 1022.0
-margin_bottom = 603.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 271.0
-margin_top = 262.0
+margin_top = 266.0
 margin_right = 750.0
-margin_bottom = 340.0
+margin_bottom = 344.0
 
 [node name="chose_dificulty_popup" type="Popup" parent="CenterContainer/VBoxContainer"]
-margin_right = 479.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,18 +61,22 @@ margin_left = 86.5249
 margin_top = 4.0
 margin_right = 409.525
 margin_bottom = 76.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "Chose Dificulty"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="easy" type="Button" parent="CenterContainer/VBoxContainer/chose_dificulty_popup/dificulty_txt"]
-margin_left = 262.247
-margin_top = 88.4001
-margin_right = 296.247
-margin_bottom = 112.4
-custom_fonts/font = SubResource( 4 )
+anchor_left = -1.85
+anchor_top = -4.236
+anchor_right = 1.314
+anchor_bottom = 4.139
+margin_left = 639.542
+margin_top = 392.286
+margin_right = -348.431
+margin_bottom = -186.714
+custom_fonts/font = SubResource( 2 )
 text = "Easy"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -76,18 +87,18 @@ margin_left = 153.231
 margin_top = 87.2944
 margin_right = 202.231
 margin_bottom = 111.294
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "medium"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="hard" type="Button" parent="CenterContainer/VBoxContainer/chose_dificulty_popup/dificulty_txt"]
-margin_left = 46.7752
-margin_top = 86.2493
-margin_right = 81.7752
-margin_bottom = 110.249
-custom_fonts/font = SubResource( 4 )
+margin_left = 273.001
+margin_top = 87.2944
+margin_right = 308.001
+margin_bottom = 111.294
+custom_fonts/font = SubResource( 2 )
 text = "hard"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -96,14 +107,14 @@ __meta__ = {
 [node name="title" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 479.0
 margin_bottom = 78.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Shiver Me Timbers"
 
 [node name="play" type="Button" parent="CenterContainer/VBoxContainer/title"]
-margin_top = 82.0
+margin_top = 78.0
 margin_right = 479.0
-margin_bottom = 119.0
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 115.0
+custom_fonts/font = SubResource( 4 )
 text = "Play"
 
 [node name="options_button" type="Button" parent="."]
@@ -114,6 +125,31 @@ text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="credits_button" type="Button" parent="."]
+margin_left = 69.0
+margin_right = 117.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 6 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit_button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 999.09
+margin_right = -2.91022
+margin_bottom = -590.0
+custom_fonts/font = SubResource( 7 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="about_to_show" from="CenterContainer/VBoxContainer/chose_dificulty_popup" to="." method="_on_chose_dificulty_about_to_show"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/chose_dificulty_popup/dificulty_txt/medium" to="." method="_on_medium_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/title/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="options_button" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

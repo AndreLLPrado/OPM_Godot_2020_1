@@ -39,8 +39,16 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -511.0
+margin_top = -305.0
+margin_right = 511.0
+margin_bottom = 305.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -52,15 +60,17 @@ margin_right = 750.0
 margin_bottom = 344.0
 
 [node name="chose_dificulty_popup" type="Popup" parent="CenterContainer/VBoxContainer"]
+margin_left = 350.0
+margin_top = 250.0
+margin_right = 829.0
+margin_bottom = 250.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="dificulty_txt" type="Label" parent="CenterContainer/VBoxContainer/chose_dificulty_popup"]
-margin_left = 86.5249
-margin_top = 4.0
-margin_right = 409.525
-margin_bottom = 76.0
+margin_right = 323.0
+margin_bottom = 72.0
 custom_fonts/font = SubResource( 1 )
 text = "Chose Dificulty"
 __meta__ = {
@@ -111,15 +121,27 @@ custom_fonts/font = SubResource( 3 )
 text = "Shiver Me Timbers"
 
 [node name="play" type="Button" parent="CenterContainer/VBoxContainer/title"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -239.5
 margin_top = 78.0
-margin_right = 479.0
+margin_right = 239.5
 margin_bottom = 115.0
 custom_fonts/font = SubResource( 4 )
 text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="options_button" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -508.346
+margin_top = -303.673
+margin_right = -448.346
+margin_bottom = -278.673
 custom_fonts/font = SubResource( 5 )
 text = "Options"
 __meta__ = {
@@ -127,9 +149,14 @@ __meta__ = {
 }
 
 [node name="credits_button" type="Button" parent="."]
-margin_left = 69.0
-margin_right = 117.0
-margin_bottom = 25.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -442.0
+margin_top = -305.0
+margin_right = -394.0
+margin_bottom = -280.0
 custom_fonts/font = SubResource( 6 )
 text = "Credits"
 __meta__ = {
@@ -137,16 +164,25 @@ __meta__ = {
 }
 
 [node name="exit_button" type="Button" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 999.09
-margin_right = -2.91022
-margin_bottom = -590.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 488.09
+margin_top = -305.0
+margin_right = 508.09
+margin_bottom = -285.0
 custom_fonts/font = SubResource( 7 )
 text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 600
 [connection signal="about_to_show" from="CenterContainer/VBoxContainer/chose_dificulty_popup" to="." method="_on_chose_dificulty_about_to_show"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/chose_dificulty_popup/dificulty_txt/medium" to="." method="_on_medium_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/title/play" to="." method="_on_play_pressed"]

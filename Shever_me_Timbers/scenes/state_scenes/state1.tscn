@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://fonts/Monkey Act - Personal Use.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripits/menu_scripits/pause_menu.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/Pirate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/navio_pirata_sem_barra_debaixo.png" type="Texture" id=5]
 [ext_resource path="res://sprites/navio_pirata_so_barra_debaixo.png" type="Texture" id=6]
-[ext_resource path="res://scripits/enemyMove.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -100,7 +99,6 @@ __meta__ = {
 
 [node name="Clown" parent="." instance=ExtResource( 3 )]
 position = Vector2( 608, 96 )
-script = ExtResource( 7 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 508.25, 285.25 )

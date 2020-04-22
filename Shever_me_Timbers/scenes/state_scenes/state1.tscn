@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Monkey Act - Personal Use.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripits/menu_scripits/pause_menu.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Clown.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Pirate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/navio_pirata_sem_barra_debaixo.png" type="Texture" id=5]
+[ext_resource path="res://sprites/navio_pirata_so_barra_debaixo.png" type="Texture" id=6]
+[ext_resource path="res://scripits/enemyMove.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -11,6 +16,11 @@ font_data = ExtResource( 1 )
 font_data = ExtResource( 1 )
 
 [node name="state_1" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 508.25, 285.25 )
+scale = Vector2( 1.95731, 1.47215 )
+texture = ExtResource( 5 )
 
 [node name="pause_menu" type="Control" parent="."]
 pause_mode = 2
@@ -85,5 +95,16 @@ text = "Return to Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Pirate" parent="." instance=ExtResource( 4 )]
+
+[node name="Clown" parent="." instance=ExtResource( 3 )]
+position = Vector2( 608, 96 )
+script = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 508.25, 285.25 )
+scale = Vector2( 1.95731, 1.47215 )
+texture = ExtResource( 6 )
 [connection signal="pressed" from="pause_menu/CenterContainer/VBoxContainer/Panel/resume_buttom" to="pause_menu" method="_on_resume_buttom_pressed"]
 [connection signal="pressed" from="pause_menu/CenterContainer/VBoxContainer/Panel/main_menu_buttom" to="pause_menu" method="_on_main_menu_buttom_pressed"]
